@@ -19,7 +19,7 @@ class Command(BaseCommand):
         parser.add_argument("--temporal_host", default=settings.TEMPORAL_HOST, help="Hostname for Temporal Scheduler")
         parser.add_argument("--temporal_port", default=settings.TEMPORAL_PORT, help="Port for Temporal Scheduler")
         parser.add_argument("--namespace", default=settings.TEMPORAL_NAMESPACE, help="Namespace to connect to")
-        parser.add_argument("--task-queue", default=settings.TEMPORAL_TASK_QUEUE, help="Task queue to service")
+        parser.add_argument("--task-queue", help="Task queue to service")
         parser.add_argument(
             "--server-root-ca-cert", default=settings.TEMPORAL_CLIENT_ROOT_CA, help="Optional root server CA cert"
         )
