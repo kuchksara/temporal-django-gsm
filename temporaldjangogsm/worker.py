@@ -19,6 +19,7 @@ async def start_worker(host, port, namespace, task_queue, options, graceful_shut
 
     # runtime = Runtime(telemetry=TelemetryConfig(metrics=PrometheusConfig(bind_address="0.0.0.0:8596")))
     # TODO FIX runtime and NAMESPACE CONFIG
+    # TODO handle the situation that port does not needed (only domain)
     client = await connect(host, port, namespace, server_root_ca_cert, client_cert, client_key)  # , runtime=runtime)
 
     if not options:

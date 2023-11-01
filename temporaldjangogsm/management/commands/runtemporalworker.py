@@ -40,6 +40,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         temporal_host = options.get("temporal_host")
+        # TODO handle the situation that port does not needed
         temporal_port = options.get("temporal_port")
         namespace = options.get("namespace")
         task_queue = options.get("task_queue")
