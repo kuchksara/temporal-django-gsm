@@ -11,6 +11,10 @@ from temporaldjangogsm.codec import EncryptionCodec
 
 
 async def connect(host, port, namespace=settings.TEMPORAL_NAMESPACE, server_root_ca_cert=None, client_cert=None, client_key=None, runtime=None):
+    if port:
+        temporal_addr = f"{host}:{port}"
+    else:
+        temporal_addr = f"{host}"
     tls: TLSConfig | bool = False
     if server_root_ca_cert and client_cert and client_key:
         tls = TLSConfig(
@@ -19,7 +23,7 @@ async def connect(host, port, namespace=settings.TEMPORAL_NAMESPACE, server_root
             client_private_key=bytes(client_key, "utf-8"),
         )
     client = await Client.connect(
-        f"{host}:{port}",
+        temporal_addr,
         namespace=namespace,
         tls=tls,
         runtime=runtime,
