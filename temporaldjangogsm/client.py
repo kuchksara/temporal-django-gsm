@@ -23,9 +23,9 @@ async def connect(host, port, namespace=settings.TEMPORAL_NAMESPACE, server_root
         namespace=namespace,
         tls=tls,
         runtime=runtime,
-        data_converter=dataclasses.replace(
-            temporalio.converter.default()
-        ),
+        # data_converter=dataclasses.replace(
+        #     temporalio.converter.default()
+        # ),
     )
     return client
 
