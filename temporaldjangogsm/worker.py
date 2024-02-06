@@ -30,7 +30,7 @@ async def start_worker(host, port, namespace, task_queue, options, graceful_shut
         workflows=workflows,
         activities=activities,
         workflow_runner=UnsandboxedWorkflowRunner(),
-        activity_executor=ThreadPoolExecutor(),  # TODO fix this
+        # activity_executor=ThreadPoolExecutor(),  # TODO fix this
         graceful_shutdown_timeout=graceful_shutdown_timeout,
         **options
     )
